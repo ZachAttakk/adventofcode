@@ -1,0 +1,2 @@
+# 2021 Submissions
+I started prepping on 30 Nov to make sure that I can drop in and get going. I set up the boilerplate and terminal readouts, but also went back to clean up older submissions and get a little practice in.
