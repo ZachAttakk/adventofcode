@@ -32,10 +32,22 @@ if (data == []):
     printDisaster("NO FILE")
 
 # HERE WE GO
-# Day 1 Part 1: check how many times the number gets bigger
+# Day 1 Part 2:
+# Check how many times the number gets bigger,
+# when the number is made up of the last 3 numbers.
+
+
+def last3(index: int) -> int:
+    if index < 2:
+        return -1  # sanity check
+    return int(data[index]) + int(data[index-1]) + int(data[index-2])
+
+
 counter: int = 0
-for i in range(1, len(data)):
-    if int(data[i]) > int(data[i-1]):  # gets bigger
+for i in range(3, len(data)):
+    # because we step back 1 in the condition,
+    # we need to start high enough so the last 3 begins at 0
+    if last3(i) > last3(i-1):  # gets bigger
         counter += 1
 
 printGood(counter)

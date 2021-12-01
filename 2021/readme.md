@@ -13,7 +13,7 @@ Collect stars by solving puzzles. Two puzzles will be made available on each day
 </details>
 
 
-## Day 1: Sonar Sweep
+## [Day 1: Sonar Sweep](6c47568f29d100b97f2b1205c70763efa1218b47)
 <details>
   <summary>Instructions:</summary>
   face of the ocean, it automatically performs a sonar sweep of the nearby sea floor. On a small screen, the sonar sweep report (your puzzle input) appears: each line is a measurement of the sea floor depth as the sweep looks further and further away from the submarine.
@@ -61,3 +61,51 @@ Not particularly tricky. Greater than of two numbers, starting at 1 instead of 0
 Of course I put the < the wrong way and calculate it backwards by accident. Then when my answer was still wrong, I realised that I'm comparing strings not integers. After casting them to int, my result was 1 more than before and this was the correct answer.
 
 Time: 20 minutes
+
+
+### Part 2
+<details>
+<summary>Instructions:</summary>
+Considering every single measurement isn't as useful as you expected: there's just too much noise in the data.
+
+Instead, consider sums of a three-measurement sliding window. Again considering the above example:
+
+```
+199  A      
+200  A B    
+208  A B C  
+210    B C D
+200  E   C D
+207  E F   D
+240  E F G  
+269    F G H
+260      G H
+263        H
+```
+
+Start by comparing the first and second three-measurement windows. The measurements in the first window are marked A (199, 200, 208); their sum is 199 + 200 + 208 = 607. The second window is marked B (200, 208, 210); its sum is 618. The sum of measurements in the second window is larger than the sum of the first, so this first comparison increased.
+
+Your goal now is to count the number of times the sum of measurements in this sliding window increases from the previous sum. So, compare A with B, then compare B with C, then C with D, and so on. Stop when there aren't enough measurements left to create a new three-measurement sum.
+
+In the above example, the sum of each three-measurement window is as follows:
+```
+A: 607 (N/A - no previous sum)
+B: 618 (increased)
+C: 618 (no change)
+D: 617 (decreased)
+E: 647 (increased)
+F: 716 (increased)
+G: 769 (increased)
+H: 792 (increased)
+```
+
+In this example, there are 5 sums that are larger than the previous sum.
+</details>
+
+> Consider sums of a three-measurement sliding window. How many sums are larger than the previous sum?
+
+OK so same problem but now comparing the last 3 numbers with the current 3 numbers. Shouldn't be too difficult to mod my code to do this. I do think I'm going to extract a method to calculate the rolling total from an index.
+
+I was smart enough to add a sanity check for an index less than 2, and then also that if I'm comparing the current 3 with the previous 3, I need to start even one higher, so my loop starts at 3. Worked first time, although I took the time to step through the code line by line and make sure.
+
+Time: 7 mins
