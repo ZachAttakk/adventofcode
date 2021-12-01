@@ -10,9 +10,6 @@
             "request": "launch",
             "program": "${file}",
             "cwd": "${fileDirname}",
-            "args": [
-                "${fileBasenameNoExtension}.txt"
-            ],
             "console": "integratedTerminal"
         }
     ]
