@@ -7,6 +7,8 @@ import operator
 from zUtils.utils import *
 
 data: list[str] = []
+# FILENAME FOR INPUT DATA
+INPUT_FILENAME = "02b.py"
 
 
 def get_data(filename) -> list[str]:
@@ -39,14 +41,12 @@ def validate(_line: str, _min: int, _max: int, _letter: str) -> bool:
     # Code for startup
 start_time = timer()
 if len(sys.argv) < 2:
-    filename = "advent.txt"
+    filename = INPUT_FILENAME
 else:
     filename = sys.argv[1]
 data = get_data(filename)
 if (data == []):
     printDisaster("NO FILE")
-
-array = []
 
 # HERE WE GO
 

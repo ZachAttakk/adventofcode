@@ -6,6 +6,9 @@ from zUtils.utils import *
 
 data: list[str] = []
 
+# FILENAME FOR INPUT DATA
+INPUT_FILENAME = "advent.txt"
+
 
 def get_data(filename) -> list[str]:
     _data: list[str] = []
@@ -21,7 +24,7 @@ def get_data(filename) -> list[str]:
 # Code for startup
 start_time = timer()
 if len(sys.argv) < 2:
-    filename = "advent.txt"
+    filename = INPUT_FILENAME
 else:
     filename = sys.argv[1]
 data = get_data(filename)
