@@ -117,9 +117,9 @@ Now, you need to figure out how to pilot this thing.
 
 It seems like the submarine can take a series of commands like forward 1, down 2, or up 3:
 
-* forward X increases the horizontal position by X units.
-* down X increases the depth by X units.
-* up X decreases the depth by X units.
+* `forward X` increases the horizontal position by X units.
+* `down X` increases the depth by X units.
+* `up X` decreases the depth by X units.
 
 Note that since you're on a submarine, down and up affect your depth, and so they have the opposite result of what you might expect.
 
@@ -184,7 +184,7 @@ Using this new interpretation of the commands, calculate the horizontal position
 
 > What do you get if you multiply your final horizontal position by your final depth?
 
-OK so we need to pass in the current aim to encapsulate, or we need to do the actual adjustment of the course directly. It's alrady in a function, so the easiest and safest would be to pass the current aim in. Good thing I used a list instead of tuples...
+OK so we need to pass in the current aim to encapsulate, or we need to do the actual adjustment of the course directly. It's already in a function, so the easiest and safest would be to pass the current aim in. Good thing I used a list instead of tuples...
 
 After making the necessary changes I ran the code and it worked first time. It helps if your instructions are clear. The answer that came out looked ridiculous but it was correct so yay me!
 

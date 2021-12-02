@@ -39,7 +39,7 @@ def validate(_line: str, _min: int, _max: int, _letter: str) -> bool:
     # Code for startup
 start_time = timer()
 if len(sys.argv) < 2:
-    filename = "advent.txt"
+    filename = "02a.txt"
 else:
     filename = sys.argv[1]
 data = get_data(filename)
@@ -63,7 +63,7 @@ for _line in data:
     else:
         printBad(_line)
 
-printOK(f"final count invalidates: {count}")
+printOK(f"final count validates: {count}")
 
 # Just because it's interesting to see how long things take to run...
 printOK("Time: %.2f seconds" % (timer()-start_time))

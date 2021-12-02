@@ -8,7 +8,7 @@ from zUtils.utils import *
 
 data: list[str] = []
 # FILENAME FOR INPUT DATA
-INPUT_FILENAME = "02b.py"
+INPUT_FILENAME = "02a.txt"
 
 
 def get_data(filename) -> list[str]:

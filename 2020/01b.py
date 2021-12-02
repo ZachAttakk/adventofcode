@@ -21,7 +21,7 @@ def get_data(filename) -> list[str]:
 # Code for startup
 start_time = timer()
 if len(sys.argv) < 2:
-    filename = "advent.txt"
+    filename = "01b.txt"
 else:
     filename = sys.argv[1]
 data = get_data(filename)
