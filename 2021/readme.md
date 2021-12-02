@@ -60,7 +60,7 @@ Not particularly tricky. Greater than of two numbers, starting at 1 instead of 0
 
 Of course I put the < the wrong way and calculate it backwards by accident. Then when my answer was still wrong, I realised that I'm comparing strings not integers. After casting them to int, my result was 1 more than before and this was the correct answer.
 
-Time: 20 minutes
+Time: **20 mins**
 
 
 ### Part 2
@@ -108,7 +108,7 @@ OK so same problem but now comparing the last 3 numbers with the current 3 numbe
 
 I was smart enough to add a sanity check for an index less than 2, and then also that if I'm comparing the current 3 with the previous 3, I need to start even one higher, so my loop starts at 3. Worked first time, although I took the time to step through the code line by line and make sure.
 
-Time: 7 mins
+Time: **7 mins**
 
 ## Day 2: Dive!
 <details>
@@ -153,5 +153,39 @@ So we're writing a function that reads commands with a word and a number, and th
 
 OK so tuples get weird when there's typing involved, so we're going with a list of 2 ints to represent position. My main function is taking the delta from the function and applying it to my running position. 
 
-Time: 20 mins (it seems the first part of the challenge is usually the big change and the slower part)
+Time: **20 mins** (it seems the first part of the challenge is usually the big change and the slower part)
 
+### Part 2
+<details>
+  <summary>Instructions:</summary>
+  Based on your calculations, the planned course doesn't seem to make any sense. You find the submarine manual and discover that the process is actually slightly more complicated.
+
+In addition to horizontal position and depth, you'll also need to track a third value, aim, which also starts at 0. The commands also mean something entirely different than you first thought:
+
+* `down X` increases your aim by X units.
+* `up X` decreases your aim by X units.
+* `forward X` does two things:
+  1. It increases your horizontal position by X units.
+  2. It increases your depth by your aim multiplied by X.
+Again note that since you're on a submarine, down and up do the opposite of what you might expect: "down" means aiming in the positive direction.
+
+Now, the above example does something different:
+
+* `forward 5` adds 5 to your horizontal position, a total of 5. Because your aim is 0, your depth does not change.
+* `down 5` adds 5 to your aim, resulting in a value of 5.
+* `forward 8` adds 8 to your horizontal position, a total of 13. Because your aim is 5, your depth increases by 8*5=40.
+* `up 3` decreases your aim by 3, resulting in a value of 2.
+* `down 8` adds 8 to your aim, resulting in a value of 10.
+* `forward 2` adds 2 to your horizontal position, a total of 15. Because your aim is 10, your depth increases by 2*10=20 to a total of 60.
+After following these new instructions, you would have a horizontal position of 15 and a depth of 60. (Multiplying these produces 900.)
+
+Using this new interpretation of the commands, calculate the horizontal position and depth you would have after following the planned course. 
+</details>
+
+> What do you get if you multiply your final horizontal position by your final depth?
+
+OK so we need to pass in the current aim to encapsulate, or we need to do the actual adjustment of the course directly. It's alrady in a function, so the easiest and safest would be to pass the current aim in. Good thing I used a list instead of tuples...
+
+After making the necessary changes I ran the code and it worked first time. It helps if your instructions are clear. The answer that came out looked ridiculous but it was correct so yay me!
+
+Time: **5 mins**, probably because the infrastructure was already there.

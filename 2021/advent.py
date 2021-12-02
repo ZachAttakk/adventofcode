@@ -38,28 +38,32 @@ if (data == []):
 # Then we multiply them
 
 
-def move(instruction: str) -> List[int]:
+def move(instruction: str, current_aim:int) -> List[int]:
     _a, _b = instruction.split(' ')
     _command: str = _a
     _amount: int = int(_b)
     _dx: int = 0
     _dy: int = 0
+    _aim:int = 0
 
     if _command == "up":
-        _dy -= _amount
+        _aim -= _amount
     elif _command == "down":
-        _dy += _amount
+        _aim += _amount
     elif _command == "forward":
         _dx += _amount
+        _dy += (current_aim * _amount)
 
-    return [_dx, _dy]
+    return [_dx, _dy, _aim]
 
 
 position: List[int] = [0, 0]
+aim:int = 0
 for i in data:
-    _delta = move(i)
+    _delta = move(i, aim)
     position[0] += _delta[0]
     position[1] += _delta[1]
+    aim += _delta[2]
 
 printDebug(f"Final position: {position[0]}, {position[1]}")
 printGood(position[0]*position[1])
