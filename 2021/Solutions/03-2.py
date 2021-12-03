@@ -61,8 +61,8 @@ def oxygen_co2(_data, oxygen_or_co2: int) -> str:
     _result_set: List[str] = copy.deepcopy(_data)  # don't want to accidentally change the original
     for _i in range(0, len(_result_set[0])):  # assume all numbers are the same length
 
-        _new_data: List[str] = [i for i in _result_set if i[_i]
-                                == gamma_epsilon(_result_set)[oxygen_or_co2][_i]]
+        filter = gamma_epsilon(_result_set)[oxygen_or_co2]
+        _new_data: List[str] = [i for i in _result_set if i[_i] == filter[_i]]
         # At this point we should have a single entry in our filtered data
         if len(_new_data) == 1:
             return _new_data[0]

@@ -285,6 +285,8 @@ OK so it says the answer is too low, so I'm filtering the actual result I want t
 
 OH I GOT IT! I was looking at the gamma number for the whole set! I'm supposed to get the gamma for the subset! OK, let's put the gamma and epsilon calculations in a function so I can call it all the time.
 
-And there we have it! It took several tried but finally I got it working!
+And there we have it! It took several tries but finally I got it working!
 
 Time: **1 hour 40 minutes** Yea this was a brainy one...
+
+Review: So the code was taking far longer to run that it was supposed to, like 4.3 seconds, so I looked at it again. TUrns out I was calculating gamma_epsilon in every run of the list comprehension (line 65) when I could do it once per loop. Extracted the function call and boom, back down to the 0.02s we're used to. Now I don't feel bad about them not being one-liners anymore.
