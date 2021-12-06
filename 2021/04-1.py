@@ -12,6 +12,7 @@ class Board:
     width: int
     values: List[dict]
     last_mark: int = 0
+    called_bingo = False
 
     def __init__(self, values: List[str], width: int = 5, ) -> None:
         self.width = width
@@ -44,6 +45,9 @@ class Board:
 
     @property
     def bingo(self) -> bool:
+        if self.called_bingo:  # Only call bingo once
+            return False
+
         for _r in self.rows:  # check each row
             _row_bingo = True
             for _i in _r:  # if it has a false, it's false
@@ -52,6 +56,7 @@ class Board:
                     break
             # if still looping, must be true
             if _row_bingo:
+                self.called_bingo = True
                 return True
 
         for _c in self.columns:  # check each row
@@ -62,6 +67,7 @@ class Board:
                     break
             # if still looping, must be true
             if _col_bingo:
+                self.called_bingo = True
                 return True
 
         # Haven't found a bingo
@@ -102,15 +108,7 @@ boards = make_boards(data[2:])
 for _num in moves:
     [b.mark(_num) for b in boards]
 
-    # check for win
-    _winner = False
-    for _b in boards:
-        if _b.bingo:
-            printGood(_b.score)
-            _winner = True
-            break
-    if _winner:
-        break
+    [printGood(f"BINGO! {b.score}") for b in boards if b.bingo]
 
 
 printOK("Time: %.2f seconds" % (timer()-start_time))
