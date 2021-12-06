@@ -40,9 +40,6 @@ def doPrint(output):
 
 data: list[str] = []
 
-# FILENAME FOR INPUT DATA
-INPUT_FILENAME = "day03.txt"
-
 
 def get_data(filename) -> list[str]:
     _data: list[str] = []
@@ -57,10 +54,9 @@ def get_data(filename) -> list[str]:
 def advent_init(filename: str, args: List[str]) -> List[str]:
     data: list[str] = []
 
-    if len(args) < 2:
-        filename = INPUT_FILENAME
-    else:
+    if len(args) >= 2:
         filename = args[1]
+
     data = get_data(filename)
     if (data == []):
         printDisaster("NO FILE")
