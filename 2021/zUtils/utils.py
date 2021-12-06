@@ -1,7 +1,10 @@
+from timeit import default_timer as timer
 import os
+from zUtils.utils import *
+from typing import List, Tuple
+
 from colorama import init
 from colorama import Fore, Back, Style
-import colorama
 init()
 os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -31,3 +34,35 @@ def printDebug(text):
 
 def doPrint(output):
     print(output)
+
+### Advent of Code init stuff ###
+
+
+data: list[str] = []
+
+# FILENAME FOR INPUT DATA
+INPUT_FILENAME = "day03.txt"
+
+
+def get_data(filename) -> list[str]:
+    _data: list[str] = []
+    if os.path.exists(filename):
+        f = open(filename, "r")
+        if f.mode == 'r':
+            _data: list[str] = f.read().splitlines()
+            f.close()
+    return _data
+
+
+def advent_init(filename: str, args: List[str]) -> List[str]:
+    data: list[str] = []
+
+    if len(args) < 2:
+        filename = INPUT_FILENAME
+    else:
+        filename = args[1]
+    data = get_data(filename)
+    if (data == []):
+        printDisaster("NO FILE")
+
+    return data

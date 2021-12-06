@@ -1,7 +1,5 @@
 import sys
-import os
 from timeit import default_timer as timer
-from os import path
 from zUtils.utils import *
 
 data: list[str] = []
@@ -10,28 +8,10 @@ data: list[str] = []
 INPUT_FILENAME = "advent.txt"
 
 
-def get_data(filename) -> list[str]:
-    _data: list[str] = []
-    if path.exists(filename):
-        f = open(filename, "r")
-        if f.mode == 'r':
-            _data: list[str] = f.read().splitlines()
-            f.close()
-    return _data
-
-
 # INIT
 # Code for startup
 start_time = timer()
-if len(sys.argv) < 2:
-    filename = INPUT_FILENAME
-else:
-    filename = sys.argv[1]
-data = get_data(filename)
-if (data == []):
-    printDisaster("NO FILE")
-
-array = []
+data = advent_init(INPUT_FILENAME, sys.argv)
 
 # HERE WE GO
 
