@@ -449,3 +449,41 @@ Why am I getting too many hits? Oh because I have dirty data! I need to actively
 There we go.
 
 Time: **20 minutes**
+
+### Part 2
+<details>
+  <summary>Instructions:</summary>
+
+Unfortunately, considering only horizontal and vertical lines doesn't give you the full picture; you need to also consider diagonal lines.
+
+Because of the limits of the hydrothermal vent mapping system, the lines in your list will only ever be horizontal, vertical, or a diagonal line at exactly 45 degrees. In other words:
+
+An entry like `1,1 -> 3,3` covers points `1,1`, `2,2`, and `3,3`.
+An entry like `9,7 -> 7,9` covers points `9,7`, `8,8`, and `7,9`.
+Considering all lines from the above example would now produce the following diagram:
+
+```
+1.1....11.
+.111...2..
+..2.1.111.
+...1.2.2..
+.112313211
+...1.2....
+..1...1...
+.1.....1..
+1.......1.
+222111....
+```
+
+You still need to determine the number of points where at least two lines overlap. In the above example, this is still anywhere in the diagram with a 2 or larger - now a total of 12 points.
+</details>
+
+> Consider all of the lines. At how many points do at least two lines overlap?
+
+OK now we have to code diagonals, which means either x1 and y2 would be the same, or x2 and y1 would be the same? Alternatively x1 and y1 are the same, as well as x2 and y2. 
+
+So diagonal means I have the x and y changing on each iteration of the loop. Time to write a custom enumerator!
+
+That seems to work! With a bit of cleaning up I can make this enumerator handle both situations then the code is cleaner, but this doesn't need to be maintainable... right?
+
+Time: **25 minutes**
