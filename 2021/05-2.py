@@ -12,15 +12,9 @@ def diagonal_enumerator(x1, y1, x2, y2):
     _curr_x = x1
     _curr_y = y1
 
-    if x1 < x2:
-        _x_delta = 1
-    else:
-        _x_delta = -1
+    _x_delta = 1 if x1 < x2 else -1
 
-    if y1 < y2:
-        _y_delta = 1
-    else:
-        _y_delta = -1
+    _y_delta = 1 if y1 < y2 else -1
 
     while _curr_x != x2:
         # Doesn't matter whether I check x or y, they should be the same amount
