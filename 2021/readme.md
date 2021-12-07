@@ -632,3 +632,35 @@ There we go. That's much cleaner and it seems to output the right total.
 And it works! It does take 8.2 seconds to get a result though...
 
 Time: **1 Hour 20 minutes**
+
+### Part 2
+<details>
+  <summary>Instructions:</summary>
+The crabs don't seem interested in your proposed solution. Perhaps you misunderstand crab engineering?
+
+As it turns out, crab submarine engines don't burn fuel at a constant rate. Instead, each change of 1 step in horizontal position costs 1 more unit of fuel than the last: the first step costs 1, the second step costs 2, the third step costs 3, and so on.
+
+As each crab moves, moving further becomes more expensive. This changes the best horizontal position to align them all on; in the example above, this becomes `5`:
+
+```
+Move from 16 to 5: 66 fuel
+Move from 1 to 5: 10 fuel
+Move from 2 to 5: 6 fuel
+Move from 0 to 5: 15 fuel
+Move from 4 to 5: 1 fuel
+Move from 2 to 5: 6 fuel
+Move from 7 to 5: 3 fuel
+Move from 1 to 5: 10 fuel
+Move from 2 to 5: 6 fuel
+Move from 14 to 5: 45 fuel
+```
+
+This costs a total of 168 fuel. This is the new cheapest possible outcome; the old alignment position (2) now costs 206 fuel instead.
+</details>
+
+Oh cumulative cost. So we need to add up all the numbers between 0 and the target? Good thing python has this `range()` function!
+
+Was off by 1 iteration because `range()` doesn't include itself so I had to add 1 to my absolute difference. It works on the test data, let's try the real thing...
+
+After 13.5 seconds we get the answer! That's OK!
+
