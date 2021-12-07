@@ -555,3 +555,20 @@ OK I've got a function that reads all the inputs and makes a list of how many fi
 OK the first 18 are working correctly. Now let's simulate the 80 days for the test data... and it works! Now the real test. Cool!
 
 Time: **35 minutes**
+
+### Part 2
+<details>
+  <summary>Instructions:</summary>
+Suppose the lanternfish live forever and have unlimited food and space. Would they take over the entire ocean?
+
+After 256 days in the example above, there would be a total of 26984457539 lanternfish!
+</details>
+
+> How many lanternfish would there be after 256 days?
+
+Let's just double check the test before running it for real, just in case... Yup it's correct. Here goes.
+
+Did it! All I had to do was change a number and it worked.
+
+Time: **39 seconds**
+
