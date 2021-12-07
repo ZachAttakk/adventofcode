@@ -662,5 +662,7 @@ Oh cumulative cost. So we need to add up all the numbers between 0 and the targe
 
 Was off by 1 iteration because `range()` doesn't include itself so I had to add 1 to my absolute difference. It works on the test data, let's try the real thing...
 
-After 13.5 seconds we get the answer! That's OK!
+After 13.5 seconds of processing time we get the answer! That's OK!
+
+Time: **4 minutes**
 
