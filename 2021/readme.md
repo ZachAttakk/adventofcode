@@ -807,13 +807,13 @@ Adding all of the output values in this larger example produces 61229.
 
 > For each entry, determine all of the wire/segment connections and decode the four-digit output values. What do you get if you add up all of the output values?
 
-Let's get the part done we know. 1,4,7,8
+Let's get the part done we know. `1`,`4`,`7`,`8`
 
 OK, now using that information we should be able to do a second pass to calculate the rest. All we need is a way of identifying the differences.
 
-Let's start with the set 2,3,5. They all have 5 segments. If I put a 1 over a 3, it covers completely, so that's a 3. Between the other two, if I put a 4 over it, one of them (5) only has 1 difference, the other (2) has 2. OK.
+Let's start with the set `2`,`3`,`5`. They all have 5 segments. If I put a `1` over a `3`, it covers completely, so that's a `3`. Between the other two, if I put a `4` over it, one of them (`5`) only has 1 difference, the other (`2`) has 2. OK.
 
-For 0,6,9, of I take a 9 and put a 4 over it, only the top and bottom is left. So that's a 9. Between the remaining two, if it has both pieces on the right (1) it's a 0.
+For 0,6,9, of I take a `9` and put a `4` over it, only the top and bottom is left. So that's a `9`. Between the remaining two, if it has both pieces on the right (`1`) it's a `0`.
 
 OK the example line works. Now the small set. That also works first try. So here goes the input data... 
 
