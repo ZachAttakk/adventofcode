@@ -740,3 +740,83 @@ So all we have to check is the length of each output and then count how many of 
 So I can't work out how to do nested sums in the same line for for loops inside them. I've never been good at the "pythonic" way of coding. So I'll go with what I know: Nested for loops with a counter.
 
 Time: **10 minutes**
+
+### Part 2
+<details>
+  <summary>Instructions:</summary>
+Through a little deduction, you should now be able to determine the remaining digits. Consider again the first example above:
+
+```
+acedgfb cdfbe gcdfa fbcad dab cefabd cdfgeb eafb cagedb ab | cdfeb fcadb cdfeb cdbaf
+```
+
+After some careful analysis, the mapping between signal wires and segments only make sense in the following configuration:
+
+```
+ dddd
+e    a
+e    a
+ ffff
+g    b
+g    b
+ cccc
+```
+
+So, the unique signal patterns would correspond to the following digits:
+
+```
+acedgfb: 8
+cdfbe: 5
+gcdfa: 2
+fbcad: 3
+dab: 7
+cefabd: 9
+cdfgeb: 6
+eafb: 4
+cagedb: 0
+ab: 1
+```
+
+Then, the four digits of the output value can be decoded:
+
+```
+cdfeb: 5
+fcadb: 3
+cdfeb: 5
+cdbaf: 3
+```
+Therefore, the output value for this entry is 5353.
+
+Following this same process for each entry in the second, larger example above, the output value of each entry can be determined:
+
+```
+fdgacbe cefdb cefbgd gcbe: 8394
+fcgedb cgb dgebacf gc: 9781
+cg cg fdcagb cbg: 1197
+efabcd cedba gadfec cb: 9361
+gecf egdcabf bgf bfgea: 4873
+gebdcfa ecba ca fadegcb: 8418
+cefg dcbef fcge gbcadfe: 4548
+ed bcgafe cdgba cbgef: 1625
+gbdfcae bgc cg cgb: 8717
+fgae cfgab fg bagce: 4315
+```
+
+Adding all of the output values in this larger example produces 61229.
+<details>
+
+> For each entry, determine all of the wire/segment connections and decode the four-digit output values. What do you get if you add up all of the output values?
+
+Let's get the part done we know. 1,4,7,8
+
+OK, now using that information we should be able to do a second pass to calculate the rest. All we need is a way of identifying the differences.
+
+Let's start with the set 2,3,5. They all have 5 segments. If I put a 1 over a 3, it covers completely, so that's a 3. Between the other two, if I put a 4 over it, one of them (5) only has 1 difference, the other (2) has 2. OK.
+
+For 0,6,9, of I take a 9 and put a 4 over it, only the top and bottom is left. So that's a 9. Between the remaining two, if it has both pieces on the right (1) it's a 0.
+
+OK the example line works. Now the small set. That also works first try. So here goes the input data... 
+
+And it works! This was the longest I've spent on a puzzle this year, but I think there's probably a more elegant way of doing this...
+
+Time: **2 hours 40 minutes**
