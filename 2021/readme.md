@@ -855,3 +855,30 @@ Pretty straightforward solution. From each point I just find its lowest point in
 
 Time **20 minutes**
 
+### Part 2
+<details>
+  <summary>Instructions:</summary>
+Next, you need to find the largest basins so you know what areas are most important to avoid.
+
+A basin is all locations that eventually flow downward to a single low point. Therefore, every low point has a basin, although some basins are very small. Locations of height 9 do not count as being in any basin, and all other locations will always be part of exactly one basin.
+
+The size of a basin is the number of locations within the basin, including the low point. The example above has four basins:
+
+* The top-left basin, size 3:
+* The top-right basin, size 9:
+* The middle basin, size 14:
+* The bottom-right basin, size 9:
+
+Find the three largest basins and multiply their sizes together. In the above example, this is `9 * 14 * 9 = 1134`.
+
+</details>
+
+> What do you get if you multiply together the sizes of the three largest basins?
+
+Mm... From each lowest point, I need to run up the ladder until I get no more higher nodes and report them all back. So same idea, except I'm sending a set of coordinates along for the ride.
+
+OK so my code is working but spitting out far too high numbers. Turns out I'm including diagonals! There we go.
+
+I missed a step. I need to only use the largest 3 totals for my result.
+
+Time: Had to stop midway to go do something so didn't time it.
