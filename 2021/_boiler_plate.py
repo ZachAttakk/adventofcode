@@ -5,15 +5,15 @@ from zUtils.utils import *
 data: list[str] = []
 
 # FILENAME FOR INPUT DATA
-INPUT_FILENAME = "advent.txt"
+INPUT_FILENAME: str = "day09.txt"
 
 
 # INIT
 # Code for startup
 start_time = timer()
-data = advent_init(INPUT_FILENAME, sys.argv)
+data = advent_init(INPUT_FILENAME, sys.argv, clear_screen=False)
 
 # HERE WE GO
 
 
-printOK("Time: %.2f seconds" % (timer()-start_time))
+printOK("Time: %.5f seconds" % (timer()-start_time))

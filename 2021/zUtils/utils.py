@@ -1,12 +1,10 @@
 from timeit import default_timer as timer
 import os
-from zUtils.utils import *
 from typing import List, Tuple
 
 from colorama import init
 from colorama import Fore, Back, Style
 init()
-os.system('cls' if os.name == 'nt' else 'clear')
 
 outputDebug = True
 
@@ -42,6 +40,8 @@ data: list[str] = []
 
 
 def get_data(filename) -> list[str]:
+
+    printDebug(f"Getting input file: {filename}")
     _data: list[str] = []
     if os.path.exists(filename):
         f = open(filename, "r")
@@ -51,10 +51,14 @@ def get_data(filename) -> list[str]:
     return _data
 
 
-def advent_init(filename: str, args: List[str]) -> List[str]:
+def advent_init(filename: str, args: List[str], clear_screen=True) -> List[str]:
+    if clear_screen:
+        os.system('cls' if os.name == 'nt' else 'clear')
+
     data: list[str] = []
 
     if len(args) >= 2:
+        printDebug(f"Filename provided: {filename}")
         filename = args[1]
 
     data = get_data(filename)
