@@ -61,7 +61,7 @@ grid: List[List[int]] = [list(map(int, a)) for a in data]
 
 # HERE WE GO
 
-lowest_locations: set[Tuple[int, int]] = set()
+lowest_locations: Set[Tuple[int, int]] = set()
 
 # Remember y is on the outside
 for y in range(len(data)):
