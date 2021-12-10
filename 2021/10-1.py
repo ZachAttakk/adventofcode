@@ -32,6 +32,7 @@ def validate(line: str, break_on_fail: bool = True) -> int:
             # close bracket
             last: str = brackets.get()
             if i != BRACKET_MATCHES[last]:
+                printDebug(f"Expected {BRACKET_MATCHES[last]}, found {i}")
                 error_score += ERROR_SCORES[i]
                 if break_on_fail:
                     break
@@ -54,4 +55,3 @@ for line in data:
 printGood(f"Part 1 answer: {sum(errors)}")
 
 printOK("Time: %.5f seconds" % (timer()-start_time))
-score: int = 0
