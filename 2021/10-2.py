@@ -8,7 +8,7 @@ from zUtils.utils import *
 data: list[str] = []
 
 # FILENAME FOR INPUT DATA
-INPUT_FILENAME: str = "day10_test.txt"
+INPUT_FILENAME: str = "day10.txt"
 BRACKET_MATCHES: dict[str, str] = {
     '(': ')',
     '[': ']',
