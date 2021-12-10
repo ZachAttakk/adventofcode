@@ -27,7 +27,7 @@ def printDisaster(text):
 
 def printDebug(text):
     if outputDebug:
-        doPrint(Style.DIM + Fore.LIGHTBLACK_EX + str(text) + Fore.RESET + Style.RESET_ALL)
+        doPrint(Fore.LIGHTBLACK_EX + str(text) + Fore.RESET + Style.RESET_ALL)
 
 
 def doPrint(output):
