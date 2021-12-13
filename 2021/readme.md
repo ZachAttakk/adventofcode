@@ -1006,3 +1006,10 @@ I'm going to stop copying all the instructions into this file. It's getting a li
 OK I can reuse a lot of code from day 9, but add the queue functionality from day 10. Increase everything by 1, then if it goes over 9 then we add them to a list of blinks.
 
 OK so the queue doesn't work. Maybe we should just iterate over the list.
+
+
+### Part 2
+
+> If you can calculate the exact moments when the octopuses will all flash simultaneously, you should be able to navigate through the cavern. What is the first step during which all octopuses flash?
+
+So when all lines with all values are 0, they all blinked. I guess I can just sum the rows?
