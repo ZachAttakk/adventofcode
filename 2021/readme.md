@@ -994,3 +994,15 @@ Autocomplete tools are an odd bunch: the winner is found by sorting all of the s
 
 Oh, same same, just empty the queue and match what's left. 
 Oh no github had a heart attack and committed the wrong files... sigh...
+
+___ 
+
+I'm going to stop copying all the instructions into this file. It's getting a little long in the tooth.
+
+## Day 11: [Dumbo Octopus](https://adventofcode.com/2021/day/11)
+
+> Given the starting energy levels of the dumbo octopuses in your cavern, simulate 100 steps. How many total flashes are there after 100 steps?
+
+OK I can reuse a lot of code from day 9, but add the queue functionality from day 10. Increase everything by 1, then if it goes over 9 then we add them to a list of blinks.
+
+OK so the queue doesn't work. Maybe we should just iterate over the list.
