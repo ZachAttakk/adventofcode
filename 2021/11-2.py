@@ -7,7 +7,7 @@ data: list[str] = []
 
 # FILENAME FOR INPUT DATA
 INPUT_FILENAME: str = "day11.txt"
-SIM_STEPS: int = 2000
+SIM_STEPS: int = 1000
 
 
 def printGrid(text: str, _grid: List[List[int]]):
@@ -74,5 +74,6 @@ for i in range(SIM_STEPS):
     if sum(sum(a) for a in grid) == 0:
         printGood(f"Synchronized: {i+1}")
         break
-
+else:
+    printGood(f"Total blinks after {SIM_STEPS} steps: {blinks_total}")
 printOK("Time: %.5f seconds" % (timer()-start_time))
