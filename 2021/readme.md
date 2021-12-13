@@ -1014,7 +1014,7 @@ OK so the queue doesn't work. Maybe we should just iterate over the list.
 
 So when all lines with all values are 0, they all blinked. I guess I can just sum the rows?
 
-## Day 12: Passage Pathing
+## Day 12: [Passage Pathing](https://adventofcode.com/2021/day/12)
 
 > How many paths through this cave system are there that visit small caves at most once?
 
@@ -1024,3 +1024,9 @@ OK behaviour:
 2. Start with every path that has "start" in the name
 3. Make a new entry for every possible way I can go from there, as long as the node we're going to is uppercase or is already in the list, then we add it to the list
 4. If the node is the word "end" we add it to the list of completed paths.
+
+### Part 2
+
+> After reviewing the available paths, you realize you might have time to visit a single small cave twice. Specifically, big caves can be visited any number of times, a single small cave can be visited at most twice, and the remaining small caves can be visited at most once. Given these new rules, how many paths through this cave system are there?
+
+So we can't simply check whether the node exists in the string, we need to make sure that adding this node won't make it the second node to repeat. This will need validation.
