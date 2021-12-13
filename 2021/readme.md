@@ -1013,3 +1013,14 @@ OK so the queue doesn't work. Maybe we should just iterate over the list.
 > If you can calculate the exact moments when the octopuses will all flash simultaneously, you should be able to navigate through the cavern. What is the first step during which all octopuses flash?
 
 So when all lines with all values are 0, they all blinked. I guess I can just sum the rows?
+
+## Day 12: Passage Pathing
+
+> How many paths through this cave system are there that visit small caves at most once?
+
+Oh no node traversal! I'm not good at this stuff...
+OK behaviour:
+1. Make a set of all nodes and where they go. This can go both ways so we need to store one way and the other way
+2. Start with every path that has "start" in the name
+3. Make a new entry for every possible way I can go from there, as long as the node we're going to is uppercase or is already in the list, then we add it to the list
+4. If the node is the word "end" we add it to the list of completed paths.
