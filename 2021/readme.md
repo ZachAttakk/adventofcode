@@ -1030,3 +1030,13 @@ OK behaviour:
 > After reviewing the available paths, you realize you might have time to visit a single small cave twice. Specifically, big caves can be visited any number of times, a single small cave can be visited at most twice, and the remaining small caves can be visited at most once. Given these new rules, how many paths through this cave system are there?
 
 So we can't simply check whether the node exists in the string, we need to make sure that adding this node won't make it the second node to repeat. This will need validation.
+
+## [Day 13: Transparent Origami](https://adventofcode.com/2021/day/13)
+
+> How many dots are visible after completing just the first fold instruction on your transparent paper?
+
+So if my calculations are correct, then if I take the fold index and subtract the index, I'll get a negative number and that's the amount that I need to add (subtract) from the fold to get the new position.
+
+It's working and I'm struggling and I can't figure it out until I saw the line at the top says "just the first fold". Idiot!
+
+And now it works.
