@@ -1047,3 +1047,9 @@ And now it works.
 
 Mm... I'm gonna have to write a print grid thing. 
 OK that was easy...
+
+## [Day 14:Extended Polymerization] (https://adventofcode.com/2021/day/14)
+
+> Apply 10 steps of pair insertion to the polymer template and find the most and least common elements in the result. What do you get if you take the quantity of the most common element and subtract the quantity of the least common element?
+
+So it's a string that we apply templates to over and over, then we put the whole string through a Counter and subtract highest from lowest.
