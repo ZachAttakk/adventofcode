@@ -1053,3 +1053,18 @@ OK that was easy...
 > Apply 10 steps of pair insertion to the polymer template and find the most and least common elements in the result. What do you get if you take the quantity of the most common element and subtract the quantity of the least common element?
 
 So it's a string that we apply templates to over and over, then we put the whole string through a Counter and subtract highest from lowest.
+
+
+### Part 2
+
+> The resulting polymer isn't nearly strong enough to reinforce the submarine. You'll need to run more steps of the pair insertion process; a total of 40 steps should do it.
+
+So just change the sim days... Oh it comes to a standstill at step 25...
+
+Step 27, one of my cores has been running at 100% for an hour and we're at step 27. Can I do what I did last time and just count how many of each I have? REWRITE!
+
+I do need to keep them in their pairs though, so there's going to be some processing at the end...
+
+I don't need to get my final counts from the reactions. They're the workhorse but not the totals. I can keep track of the element count as it runs...
+
+OK for the first time I think I'll have to step away from this one and come back another day.
