@@ -1040,3 +1040,10 @@ So if my calculations are correct, then if I take the fold index and subtract th
 It's working and I'm struggling and I can't figure it out until I saw the line at the top says "just the first fold". Idiot!
 
 And now it works.
+
+### Part 2
+
+> Finish folding the transparent paper according to the instructions. The manual says the code is always eight capital letters. What code do you use to activate the infrared thermal imaging camera system?
+
+Mm... I'm gonna have to write a print grid thing. 
+OK that was easy...
