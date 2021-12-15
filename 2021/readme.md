@@ -1068,3 +1068,21 @@ I do need to keep them in their pairs though, so there's going to be some proces
 I don't need to get my final counts from the reactions. They're the workhorse but not the totals. I can keep track of the element count as it runs...
 
 OK for the first time I think I'll have to step away from this one and come back another day.
+
+## [Day 15: Chiton](https://adventofcode.com/2021/day/15)
+
+> What is the lowest total risk of any path from the top left to the bottom right?
+
+Pathfinding. I've never actually implemented A*, let's see if I can work it out.
+
+Let's try [`astar-python`](https://github.com/zephirdeadline/astar_python).
+
+OK so this version doesn't allow for diagonals, but I see someone has made a pull request with diagonals. So now we're using `astar-python` by [Rasengangstarr](https://github.com/Rasengangstarr/astar_python)
+
+OK nevermind, A* doesn't get me the fastest route, it just gives me the first route. Looks like the library doesn't have a way for me to provide my own heuristic function so it always works on manhattan distance + weight of the next node, and that's throwing out the path that will eventually be the correct one. I mean I stepped through their code. It actually finds the correct next node (at least according to the example) but then it backtracks to another node.
+
+Let's try something that's at least past version 0.1.0... [Dijkstar](https://github.com/wylee/Dijkstar).
+
+Hey that worked first try! And this library has the ability to provide a heuristic function if I actually do want to make it A*! This is a much better implementation!
+
+
