@@ -46,17 +46,18 @@ def make_graph(matrix):
 
 
 def expand_matrix(matrix: List[List[int]], mag) -> List[List[int]]:
-    size = len(matrix)
-    output = [[0 for _x in range(size*mag)] for _y in range(size*mag)]
+    width: int = len(matrix[0])
+    height: int = len(matrix)
+    output = [[0 for _x in range(width*mag)] for _y in range(height*mag)]
 
     # 5 by 5 tiles
     for y in range(mag):
         for x in range(mag):
             # repeat the actual grid, multiplying numbers by the outer iterations in 2 dimensions
-            for b in range(size):
-                for a in range(size):
+            for b in range(height):
+                for a in range(width):
                     # wrap 10s to 1, mod 10 gives a zero so need mod 9 +1
-                    output[y*size + a][x*size + b] = (matrix[a][b] + y + x - 1) % 9 + 1
+                    output[(y*height) + b][(x*width) + a] = (matrix[b][a] + y + x - 1) % 9 + 1
 
     return output
 
