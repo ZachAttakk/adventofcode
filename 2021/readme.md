@@ -1086,3 +1086,7 @@ Let's try something that's at least past version 0.1.0... [Dijkstar](https://git
 Hey that worked first try! And this library has the ability to provide a heuristic function if I actually do want to make it A*! This is a much better implementation!
 
 
+### Part 2
+
+> The entire cave is actually five times larger in both dimensions than you thought; the area you originally scanned is just one tile in a 5x5 tile area that forms the full map. 
+Using the full map, what is the lowest total risk of any path from the top left to the bottom right?
