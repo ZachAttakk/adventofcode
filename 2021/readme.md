@@ -1090,3 +1090,5 @@ Hey that worked first try! And this library has the ability to provide a heurist
 
 > The entire cave is actually five times larger in both dimensions than you thought; the area you originally scanned is just one tile in a 5x5 tile area that forms the full map. 
 Using the full map, what is the lowest total risk of any path from the top left to the bottom right?
+
+So after I made the grid, I need to expand it in both dimensions by 4 more, with increasing values. So that's a 2D loop inside a 2D loop, multiplying each number by the outer loop position. It's ugly but it works. There's probably a simple expression to do this in numpy or something...
