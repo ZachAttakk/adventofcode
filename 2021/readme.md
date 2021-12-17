@@ -1092,3 +1092,21 @@ Hey that worked first try! And this library has the ability to provide a heurist
 Using the full map, what is the lowest total risk of any path from the top left to the bottom right?
 
 So after I made the grid, I need to expand it in both dimensions by 4 more, with increasing values. So that's a 2D loop inside a 2D loop, multiplying each number by the outer loop position. It's ugly but it works. There's probably a simple expression to do this in numpy or something...
+
+## [Day 16 Packet Decoder](https://adventofcode.com/2021/day/16)
+
+> Decode the structure of your hexadecimal-encoded BITS transmission; what do you get if you add up the version numbers in all packets?
+
+OK this is confusing... First things first, lets get this hex information coded to binary.
+
+There we go. That was a one-liner.
+
+OK now we can parse a literal number in a subfunction. Now we need to be able to read numbers inside operators, which means we might need to rethink how we parse type IDs. 
+
+I should probably read to the bottom of this whole thing before I bother writing the entire interpreter. There's probably a clause saying I only have to do the first bit for the answer. But if that's the case, then Part 2 will require the rest of it, so might as well do it now. It's kind of fun.
+
+OK now I have a result class too, called Packet. I considered passing back a tuple with version and value, but then I might need to see the types. Here's to over-engineering simple problems...
+
+One of the hardest things to get right, is having the Bitfeeder give back a "done" status that makes sense. The end of the input is very inconsistent, so I need to check a few things to work out whether it's done.
+
+In my input data is a weird thing where the last string literal doesn't have the correct "end" tag. Should a literal not have either the "keep reading" tag or a predefined length? Otherwise how do we know when it ends? Just run out of bits?
