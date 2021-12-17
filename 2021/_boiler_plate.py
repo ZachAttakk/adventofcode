@@ -8,13 +8,13 @@ data: list[str] = []
 INPUT_FILENAME: str = "day09.txt"
 
 
-# INIT
-# Code for startup
-start_time = timer()
-data = advent_init(INPUT_FILENAME, sys.argv, clear_screen=False)
-
-
 def main():
+
+    # INIT
+    # Code for startup
+    start_time = timer()
+    data = advent_init(INPUT_FILENAME, sys.argv, clear_screen=False)
+
     # HERE WE GO
 
     printOK("Time: %.5f seconds" % (timer()-start_time))
