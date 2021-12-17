@@ -58,8 +58,8 @@ def advent_init(filename: str, args: List[str], clear_screen=True) -> List[str]:
     data: list[str] = []
 
     if len(args) >= 2:
-        printDebug(f"Filename provided: {filename}")
         filename = args[1]
+        printDebug(f"Filename provided: {filename}")
 
     data = get_data(filename)
     if (data == []):
