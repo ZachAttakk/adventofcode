@@ -65,9 +65,6 @@ class Bitfeed:
         else:
             return f"{self.bits[self.cursor:]}(done)"
 
-    # INIT
-    # Code for startup
-
     def parse_literal(self, length: int = -1) -> int:
         num: str = ""
         keep_reading: bool = True
