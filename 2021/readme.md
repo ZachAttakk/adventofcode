@@ -1110,3 +1110,13 @@ OK now I have a result class too, called Packet. I considered passing back a tup
 One of the hardest things to get right, is having the Bitfeeder give back a "done" status that makes sense. The end of the input is very inconsistent, so I need to check a few things to work out whether it's done.
 
 In my input data is a weird thing where the last string literal doesn't have the correct "end" tag. Should a literal not have either the "keep reading" tag or a predefined length? Otherwise how do we know when it ends? Just run out of bits?
+
+### Part 2
+
+> What do you get if you evaluate the expression represented by your hexadecimal-encoded BITS transmission?
+
+OK so theoretically I just need to write the use cases for the other type IDs and we're good.
+
+So all the test cases work, but not my final case. It says the number is too low... I suspect it has to do with how I check whether a bit stream is done. Why would I have 5 zeroes at the end of a packet in the middle of an instruction?
+
+Turns out I can't rely on the "done" value to see whether there's more to read in the bitfeeder. The done property is meant more for the system to know whether there's another typeID coming. Maybe I should add a peak...
