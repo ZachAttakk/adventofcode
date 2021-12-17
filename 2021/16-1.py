@@ -138,15 +138,19 @@ class Bitfeed:
         return result
 
 
-start_time = timer()
-data = advent_init(INPUT_FILENAME, sys.argv, clear_screen=False)
+def main():
+    start_time = timer()
+    data = advent_init(INPUT_FILENAME, sys.argv, clear_screen=False)
 
-bits = Bitfeed.from_hex(data[0])
+    bits = Bitfeed.from_hex(data[0])
 
-# HERE WE GO
-printOK(bits.parse())
+    # HERE WE GO
+    printOK(bits.parse())
 
-printGood(f"Part 1: {sum([a.version for a in bits.parse()])}")
+    printGood(f"Part 1: {sum([a.version for a in bits.parse()])}")
+
+    printOK("Time: %.5f seconds" % (timer()-start_time))
 
 
-printOK("Time: %.5f seconds" % (timer()-start_time))
+if __name__ == "__main__":
+    main()

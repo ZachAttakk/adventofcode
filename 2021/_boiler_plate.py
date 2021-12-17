@@ -13,7 +13,12 @@ INPUT_FILENAME: str = "day09.txt"
 start_time = timer()
 data = advent_init(INPUT_FILENAME, sys.argv, clear_screen=False)
 
-# HERE WE GO
+
+def main():
+    # HERE WE GO
+
+    printOK("Time: %.5f seconds" % (timer()-start_time))
 
 
-printOK("Time: %.5f seconds" % (timer()-start_time))
+if __name__ == "__main__":
+    main()
