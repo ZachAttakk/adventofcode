@@ -1136,3 +1136,13 @@ OK I've been able to reproduce the test conditions. Now I need to output the max
 So my calculations work, but the answer is too low. I feel there might be a higher Y velocity that would still hit the pot shot if I keep running high enough. So let's set an arbitrary maximum and run until we hit that. See what shakes out.
 
 At 10 000 loops I found a target around 85, so maybe I can trim it to 100. But it worked!
+
+### Part 2
+
+> How many distinct initial velocity values cause the probe to be within the target area after any step?
+
+So when I check whether it hits, if it hits I can just save it. There might be several X velocities that hit as well, so this requires a set! I will have to check my velocity in 2D though.
+
+How are some of the given values for Y negative? Oh because I can launch it hard enough that it lands on the first cycle! So our minimum value is actual die minimum of Y.
+
+Problem with a multidimensional system, is that some resistances approach zero and other keep going... Guess I'll just lock it down. Not it can only handle a 2D velocity because I need to explicitely apply gravity and drag.
