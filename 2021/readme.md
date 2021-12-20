@@ -1120,3 +1120,19 @@ OK so theoretically I just need to write the use cases for the other type IDs an
 So all the test cases work, but not my final case. It says the number is too low... I suspect it has to do with how I check whether a bit stream is done. Why would I have 5 zeroes at the end of a packet in the middle of an instruction?
 
 Turns out I can't rely on the "done" value to see whether there's more to read in the bitfeeder. The done property is meant more for the system to know whether there's another typeID coming. Maybe I should add a peak...
+
+## [Day 17: Trick Shot](https://adventofcode.com/2021/day/17)
+
+> Find the initial velocity that causes the probe to reach the highest y position and still eventually be within the target area after any step. What is the highest y position it reaches on this trajectory?
+
+So the easiest would be to seperate the X and Y axis. First calculate what is the most number of steps left to right that I can have to get it there, then work out how high it can do by working towards the middle.
+
+Can't I calculate this backwards? Gravity and air resistance is linear.
+
+OK I've approached it backwards. If I know how high I can launch it and still hit my target accurately, I can afterwards work out how far forward I need to go to make that shot. Will the target always be below me? Doesn't matter, puzzle input is negative so it's fine.
+
+OK I've been able to reproduce the test conditions. Now I need to output the max height.
+
+So my calculations work, but the answer is too low. I feel there might be a higher Y velocity that would still hit the pot shot if I keep running high enough. So let's set an arbitrary maximum and run until we hit that. See what shakes out.
+
+At 10 000 loops I found a target around 85, so maybe I can trim it to 100. But it worked!
