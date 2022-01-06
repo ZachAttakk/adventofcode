@@ -1158,3 +1158,9 @@ OK so we're writing a loop that reads through the whole object of objects until 
 It's amazing how coming back to something a few weeks later can clear your head. It took only 20 minutes to get the reductions working the way it's supposed to.
 
 Next we need to calculate the magnitude things. I can actually reuse the regex I wrote for finding a pair, and every time just replace the pair with the new answer, making another pair if needed. Eventually I end up with a single number.
+
+### Part 2
+
+Oh... so I need to add up all possible combinations of numbers and then check what's the highest number... This is going to take a while to work out...
+
+Of course now the amount of work goes up exponentially with the number of lines, because I have to add them all to all of them. Oh, it's still done in under 6 seconds. Not bad for a bunch of string replacements...
