@@ -1146,3 +1146,15 @@ So when I check whether it hits, if it hits I can just save it. There might be s
 How are some of the given values for Y negative? Oh because I can launch it hard enough that it lands on the first cycle! So our minimum value is actual die minimum of Y.
 
 Problem with a multidimensional system, is that some resistances approach zero and other keep going... Guess I'll just lock it down. Not it can only handle a 2D velocity because I need to explicitely apply gravity and drag.
+
+## [Day 18: Snailfish](https://adventofcode.com/2021/day/18)
+
+> Add up all of the snailfish numbers from the homework assignment in the order they appear. What is the magnitude of the final sum?
+
+It might be useful that Python allows me to have lists inside lists. I'll also have to look at recursion for the solving thing.
+
+OK so we're writing a loop that reads through the whole object of objects until it finds an explosion, then applies the changes. Then we run through the whole thing looking for a split and applies it. Back to top. I might have to abandon my idea of eval. It's a little unfortunate. Maybe I can just walk through it in text? Then it's 2D. I can predict it's going to become a complicated mess and probably take forever to run...
+
+It's amazing how coming back to something a few weeks later can clear your head. It took only 20 minutes to get the reductions working the way it's supposed to.
+
+Next we need to calculate the magnitude things. I can actually reuse the regex I wrote for finding a pair, and every time just replace the pair with the new answer, making another pair if needed. Eventually I end up with a single number.
