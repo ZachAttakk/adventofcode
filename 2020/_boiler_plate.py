@@ -1,8 +1,7 @@
 import sys
-import os
 from timeit import default_timer as timer
 from os import path
-from zUtils.utils import *
+from zUtils.utils import printOK, printDisaster, printGood, printBad
 
 data: list[str] = []
 
@@ -10,7 +9,7 @@ data: list[str] = []
 def get_data(filename) -> list[str]:
     _data: list[str] = []
     if path.exists(filename):
-        f = open(filename, "r")
+        f = open(filename, "r", encoding='utf_8')
         if f.mode == 'r':
             _data: list[str] = f.read().splitlines()
             f.close()
@@ -21,11 +20,11 @@ def get_data(filename) -> list[str]:
 # Code for startup
 start_time = timer()
 if len(sys.argv) < 2:
-    filename = "advent.txt"
+    FILENAME = "advent.txt"
 else:
-    filename = sys.argv[1]
-data = get_data(filename)
-if (data == []):
+    FILENAME = sys.argv[1]
+data = get_data(FILENAME)
+if not data:
     printDisaster("NO FILE")
 
 array = []
@@ -33,4 +32,4 @@ array = []
 # HERE WE GO
 
 
-printOK("Time: %.2f seconds" % (timer()-start_time))
+printOK(f"Time: {(timer()-start_time):.4f} seconds")
