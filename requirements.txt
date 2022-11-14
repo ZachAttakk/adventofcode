@@ -1,0 +1,4 @@
+colorama==0.4.4
+Dijkstar==2.6.0
+regex==2021.11.10
+sympy==1.11.1
