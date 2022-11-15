@@ -39,7 +39,7 @@ data.append(max(data)+3)
 
 data.sort()
 
-variations = 1
+variations = []
 for adapter in data:
     new = 0
     if adapter+1 in data:
@@ -48,8 +48,9 @@ for adapter in data:
         new += 1
     if adapter+3 in data:
         new += 1
-    variations += (new-1)
+    if new > 1:
+        variations.append(new)
 
-printGood(variations)
+printGood(sum(variations))
 
 printOK(f"Time: {(timer()-start_time):.4f} seconds")

@@ -5,7 +5,7 @@ import colorama
 init()
 os.system('cls' if os.name == 'nt' else 'clear')
 
-outputDebug = True
+outputDebug = False
 
 
 def printGood(text):
