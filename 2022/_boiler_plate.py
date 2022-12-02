@@ -13,7 +13,7 @@ def main():
     # INIT
     # Code for startup
     start_time = timer()
-    data = advent_init(INPUT_FILENAME, sys.argv, clear_screen=False)
+    data = advent_init(INPUT_FILENAME, sys.argv, clear_screen=True)
 
     # HERE WE GO
 
