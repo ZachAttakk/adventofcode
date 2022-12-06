@@ -5,7 +5,7 @@ from zUtils.utils import *
 data: list[str] = []
 
 # FILENAME FOR INPUT DATA
-INPUT_FILENAME: str = "day09.txt"
+INPUT_FILENAME: str = "06.txt"
 
 
 def main():
@@ -16,7 +16,6 @@ def main():
     data = advent_init(INPUT_FILENAME, sys.argv, clear_screen=True)
 
     # HERE WE GO
-
     printOK("Time: %.5f seconds" % (timer()-start_time))
 
 
