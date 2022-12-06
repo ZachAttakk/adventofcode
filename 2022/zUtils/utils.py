@@ -53,7 +53,7 @@ def get_data(filename) -> list[str]:
 
 def advent_init(filename: str, args: List[str], clear_screen=True) -> List[str]:
     if clear_screen:
-        os.system('cls' if os.name == 'nt' else 'clear')
+        clear()
 
     data: list[str] = []
 
@@ -66,3 +66,7 @@ def advent_init(filename: str, args: List[str], clear_screen=True) -> List[str]:
         printDisaster("NO FILE")
 
     return data
+
+
+def clear():
+    os.system('cls' if os.name == 'nt' else 'clear')
