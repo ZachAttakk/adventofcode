@@ -1,9 +1,9 @@
-from timeit import default_timer as timer
 import os
+from timeit import default_timer as timer
 from typing import List, Tuple
 
-from colorama import init
-from colorama import Fore, Back, Style
+from colorama import Back, Fore, Style, init
+
 init()
 
 outputDebug = True
