@@ -34,6 +34,8 @@ for line_index, value in pairs(inputs) do
         -- use the one that's smaller
         if first_digit_index ~= nil and first_digit_index < first_word_index then
             nums = nums .. string.sub(value, first_digit_index, first_digit_index)
+            -- apparently the names of words can overlap.
+            -- good thing someone posted it on reddit...
             last_found = first_digit_index + 1
         elseif first_word_index < math.maxinteger then
             nums = nums .. first_word_found
