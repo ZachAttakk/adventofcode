@@ -8,7 +8,7 @@ local inputs = utils.lines_from(input_file)
 -- this works because lua indexes from one
 NUMBERS = { "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" }
 
-outputs = {}
+local outputs = {}
 
 for line_index, value in pairs(inputs) do
     -- find the numbers in each line

@@ -5,7 +5,7 @@ local inputs = utils.lines_from(input_file)
 
 -- DO THE CODE HERE
 
-outputs = {}
+local outputs = {}
 
 for _, value in pairs(inputs) do
     -- find the numbers in each line
