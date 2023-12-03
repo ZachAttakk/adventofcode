@@ -42,6 +42,15 @@ local function split(inputstr, sep)
 end
 M.split = split
 
+local function sum(number_list)
+    local total = 0
+    for _, value in pairs(number_list) do
+        total = total + value
+    end
+    return total
+end
+M.sum = sum
+
 
 
 return M
