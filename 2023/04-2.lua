@@ -33,7 +33,7 @@ for i = 1, #data, 1 do
     table.insert(multipliers, 1)
 end
 
--- then inscrease the multiplier based on wins
+-- then increase the multiplier based on wins
 
 for card_index, card in pairs(data) do
     for i = card_index + 1, card_index + card, 1 do
