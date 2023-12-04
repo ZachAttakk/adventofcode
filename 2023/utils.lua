@@ -51,6 +51,15 @@ local function sum(number_list)
 end
 M.sum = sum
 
-
+-- add contains function to table
+-- probably janky to do this
+function table.contains(table, element)
+    for _, value in pairs(table) do
+        if value == element then
+            return true
+        end
+    end
+    return false
+end
 
 return M
