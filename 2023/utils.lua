@@ -1,5 +1,39 @@
--- file reading module
+-- add contains functions to table
+function table.contains(table, element)
+    for _, value in pairs(table) do
+        if value == element then
+            return true
+        end
+    end
+    return false
+end
 
+-- string functions
+function string:startswith(start)
+    return self:sub(1, #start) == start
+end
+
+function string:endswith(ending)
+    return ending == "" or self:sub(- #ending) == ending
+end
+
+function string:trim()
+    return (self:gsub("^%s*(.-)%s*$", "%1"))
+end
+
+function string:split(sep)
+    if sep == nil then
+        sep = "%s"
+    end
+    local t = {}
+    for str in string.gmatch(self, "([^" .. sep .. "]+)") do
+        table.insert(t, string.trim(str))
+    end
+    return t
+end
+
+--#region utils
+-- utils module
 local NAME = "utils"
 
 local M = {}
@@ -50,16 +84,6 @@ local function sum(number_list)
     return total
 end
 M.sum = sum
-
--- add contains function to table
--- probably janky to do this
-function table.contains(table, element)
-    for _, value in pairs(table) do
-        if value == element then
-            return true
-        end
-    end
-    return false
-end
-
 return M
+
+--#endregion
