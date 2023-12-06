@@ -1,3 +1,5 @@
+--#region table functions
+
 -- add contains functions to table
 function table.contains(table, element)
     for _, value in pairs(table) do
@@ -31,6 +33,8 @@ function string:split(sep)
     end
     return t
 end
+
+--#endregion
 
 --#region utils
 -- utils module
@@ -76,6 +80,17 @@ local function split(inputstr, sep)
 end
 M.split = split
 
+local function split_to_nums(inputstr, sep)
+    -- split a string into values and then convert them all to numbers
+    local strs = split(inputstr, sep)
+    for i = 1, #strs, 1 do
+        strs[i] = tonumber(strs[i])
+    end
+
+    return strs
+end
+M.split_to_nums = split_to_nums
+
 local function sum(number_list)
     local total = 0
     for _, value in pairs(number_list) do
@@ -84,6 +99,20 @@ local function sum(number_list)
     return total
 end
 M.sum = sum
+
+local function multiply(number_list)
+    local total = number_list[1]
+
+    for i = 2, #number_list, 1 do
+        total = total * number_list[i]
+    end
+    return total
+end
+M.multiply = multiply
+
+
+
 return M
+
 
 --#endregion
