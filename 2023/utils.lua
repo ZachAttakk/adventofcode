@@ -10,6 +10,11 @@ function table.contains(table, element)
     return false
 end
 
+-- sort in ascending order
+function table.sort_asc(list)
+    table.sort(list, function(a, b) return a > b end)
+end
+
 -- string functions
 function string:startswith(start)
     return self:sub(1, #start) == start
