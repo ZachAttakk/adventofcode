@@ -74,12 +74,15 @@ end
 M.trim = trim
 
 local function split(inputstr, sep)
-    if sep == nil then
-        sep = "%s"
-    end
     local t = {}
-    for str in string.gmatch(inputstr, "([^" .. sep .. "]+)") do
-        table.insert(t, trim(str))
+    if sep == nil then
+        for i = 1, #inputstr, 1 do
+            table.insert(t, inputstr:sub(i, i))
+        end
+    else
+        for str in string.gmatch(inputstr, "([^" .. sep .. "]+)") do
+            table.insert(t, trim(str))
+        end
     end
     return t
 end
@@ -115,7 +118,31 @@ local function multiply(number_list)
 end
 M.multiply = multiply
 
+local function is_prime(x)
+    -- Negative numbers, 0 and 1 are not prime.
+    if x < 2 then
+        return false
+    end
 
+    -- Primality for even numbers is easy.
+    if x == 2 then
+        return 2
+    end
+    if x % 2 == 0 then
+        return false
+    end
+
+    -- Since we have already considered the even numbers,
+    -- see if the odd numbers are factors.
+    for i = 3, math.sqrt(x), 2 do
+        if x % i == 0 then
+            return false
+        end
+    end
+    return x
+end
+
+M.is_prime = is_prime
 
 return M
 
