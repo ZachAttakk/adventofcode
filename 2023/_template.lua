@@ -12,5 +12,5 @@ end
 
 -- OUTPUT THE RESULT
 print("")
-print("OUTPUT GOES HERE")
+print.green("OUTPUT GOES HERE")
 utils.timestamp()
