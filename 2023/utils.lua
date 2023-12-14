@@ -167,15 +167,16 @@ end
 M.deepcopy = deepcopy
 
 local function timestamp(start_time)
-    if not start_time then
-        print(string.format("Elapsed time: %.3f s", os.clock()))
+    local time_dif = os.clock()
+    local output = string.format("Elapsed time: %.3f s", os.clock())
+    if start_time then
+        time_dif = os.clock() - start_time
+        output = string.format("Elapsed time: %.3f/%.3fs", os.clock() - start_time, os.clock())
+    end
+    if time_dif > 10 then
+        print.red(output)
     else
-        local time_dif = os.clock() - start_time
-        if time_dif > 10 then
-            print.red(string.format("Elapsed time: %.3f/%.3fs", os.clock() - start_time, os.clock()))
-        else
-            print(string.format("Elapsed time: %.3f/%.3fs", os.clock() - start_time, os.clock()))
-        end
+        print(output)
     end
 end
 M.timestamp = timestamp
