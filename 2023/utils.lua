@@ -1,3 +1,5 @@
+print = require "chroma"
+
 --#region table functions
 
 -- add contains functions to table
@@ -141,8 +143,42 @@ local function is_prime(x)
     end
     return x
 end
-
 M.is_prime = is_prime
+
+local function deepcopy(o, seen)
+    seen = seen or {}
+    if o == nil then return nil end
+    if seen[o] then return seen[o] end
+
+    local no
+    if type(o) == 'table' then
+        no = {}
+        seen[o] = no
+
+        for k, v in next, o, nil do
+            no[deepcopy(k, seen)] = deepcopy(v, seen)
+        end
+        setmetatable(no, deepcopy(getmetatable(o), seen))
+    else -- number, string, boolean, etc
+        no = o
+    end
+    return no
+end
+M.deepcopy = deepcopy
+
+local function timestamp(start_time)
+    if not start_time then
+        print(string.format("Elapsed time: %.3f s", os.clock()))
+    else
+        local time_dif = os.clock() - start_time
+        if time_dif > 10 then
+            print.red(string.format("Elapsed time: %.3f/%.3fs", os.clock() - start_time, os.clock()))
+        else
+            print(string.format("Elapsed time: %.3f/%.3fs", os.clock() - start_time, os.clock()))
+        end
+    end
+end
+M.timestamp = timestamp
 
 return M
 
