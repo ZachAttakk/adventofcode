@@ -181,6 +181,12 @@ local function timestamp(start_time)
 end
 M.timestamp = timestamp
 
+local function progress_bar(value, total)
+    local perc = value / total
+    return string.format("%s%s", string.rep("#", math.floor(perc * 100)), string.rep("_", math.floor((1 - perc) * 100)))
+end
+M.progress_bar = progress_bar
+
 return M
 
 
