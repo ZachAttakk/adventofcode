@@ -187,6 +187,55 @@ local function progress_bar(value, total)
 end
 M.progress_bar = progress_bar
 
+local function get_grid_size(grid)
+    local l = 1 -- left start
+    local t = 1 -- top start
+    local b = #grid
+    local r = 1
+    for i, v in pairs(grid) do
+        if i > b then b = i end
+        if i < t then t = i end
+        for x, _ in pairs(v) do
+            if x > r then r = x end
+            if x < l then l = x end
+        end
+    end
+    return t, b, l, r
+end
+M.get_grid_size = get_grid_size
+
+local function print_grid(grid, with_symbols)
+    if with_symbols == nil then with_symbols = true end
+    -- get size
+    local t, b, l, r = get_grid_size
+
+    local output = ""
+    for y = t, b, 1 do
+        local line = ""
+        if not grid[y] then
+            line = string.rep(".", r - l)
+        else
+            line = ""
+            for x = l, r, 1 do
+                if not grid[y][x] or grid[y][x] == "." then
+                    line = line .. "."
+                else
+                    if with_symbols then
+                        line = line .. grid[y][x]
+                    else
+                        line = line .. "#"
+                    end
+                end
+            end
+        end
+        output = output .. line .. "\n"
+    end
+    print(output)
+    return t, b, l, r
+end
+
+M.print_grid = print_grid
+
 return M
 
 
