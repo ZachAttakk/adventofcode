@@ -166,12 +166,24 @@ local function deepcopy(o, seen)
 end
 M.deepcopy = deepcopy
 
+local function format_time(seconds)
+    if seconds < 60 then
+        return string.format("%.3fs", seconds)
+    elseif seconds < 3600 then
+        return string.format("%d:%.3fs", seconds // 60, seconds % 60)
+    else
+        return string.format("%d:%d:%.3f%s", seconds // 3600, seconds % 3600, seconds % 60)
+    end
+end
+M.format_time = format_time
+
+
 local function timestamp(start_time)
     local time_dif = os.clock()
-    local output = string.format("Elapsed time: %.3f s", os.clock())
+    local output = string.format("Elapsed time: %s", format_time(time_dif))
     if start_time then
         time_dif = os.clock() - start_time
-        output = string.format("Elapsed time: %.3f/%.3fs", os.clock() - start_time, os.clock())
+        output = string.format("Elapsed time: %s / %s", format_time(time_dif), format_time(os.clock()))
     end
     if time_dif > 10 then
         print.red(output)

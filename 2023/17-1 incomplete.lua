@@ -10,13 +10,15 @@ local function convert_data_to_grid(data)
     local grid = {}
     for y = 1, #data, 1 do
         for x = 1, #data[y], 1 do
-            table.insert(row, { x = x, y = y, cost = data[y][x] })
+            local node_name = string.format("%03d,%03d", x, y)
+            grid[node_name] = data[y][x]
         end
     end
+    return grid
 end
 
 local function expand(n)
-    return graph[n]
+    return GRAPH[n]
 end
 
 local function cost(from)

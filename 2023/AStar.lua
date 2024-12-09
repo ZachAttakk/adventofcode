@@ -1,6 +1,8 @@
+-- https://github.com/Shakadak/lua-astar
+
 local PQ = {}
 
-PQ.new = function ()
+PQ.new = function()
     local queue = {
         n      = 0,
         pop    = PQ.pop,
@@ -9,10 +11,10 @@ PQ.new = function ()
     return queue
 end
 
-PQ.insert = function (self, priority, elem)
+PQ.insert = function(self, priority, elem)
     local n = self.n + 1
     self.n = n
-    self[n] = {p=priority,v=elem}
+    self[n] = { p = priority, v = elem }
     local i = n
     while i >= 2 do
         local j = math.floor(i / 2)
@@ -23,13 +25,13 @@ PQ.insert = function (self, priority, elem)
     end
 end
 
-PQ.pop = function (self)
+PQ.pop = function(self)
     if self.n == 0 then return nil end
-    local ret = self[1]
-    local n   = self.n
+    local ret        = self[1]
+    local n          = self.n
     self[1], self[n] = self[n], nil
-    self.n = n - 1
-    local i = 1
+    self.n           = n - 1
+    local i          = 1
     while i < self.n do
         local left = 2 * i
         local right = 2 * i + 1
@@ -44,7 +46,8 @@ PQ.pop = function (self)
                 i = right
             end
         end
-        if current == i then break
+        if current == i then
+            break
         else
             self[current], self[i] = self[i], self[current]
         end
@@ -55,25 +58,32 @@ end
 local function fromMaybe(default)
     return function(maybeNil)
         if maybeNil == nil
-            then return default
-            else return maybeNil
+        then
+            return default
+        else
+            return maybeNil
         end
     end
 end
 
 local function maybe(default)
-    return  function(f)
-    return  function(x)
-        if x == nil
-        then return default
-        else return f(x)
+    return function(f)
+        return function(x)
+            if x == nil
+            then
+                return default
+            else
+                return f(x)
+            end
         end
-end end end
+    end
+end
 
 local function inferior(x)
-    return     function(y)
+    return function(y)
         return x < y
-end end
+    end
+end
 
 local function backtrack(last, cameFrom)
     local current = last
@@ -100,41 +110,41 @@ end
 -- return nil in case of failure
 --        the ordered path in case of success, as an array
 local function aStar(expand)
-    return  function(cost)
-    return  function(heuristic)
-    return  function(goal)
-    return  function(start)
-        local open = PQ.new()
-        local closed = {}
-        local cameFrom = {}
-        local tCost = {}
+    return function(cost)
+        return function(heuristic)
+            return function(goal)
+                return function(start)
+                    local open = PQ.new()
+                    local closed = {}
+                    local cameFrom = {}
+                    local tCost = {}
 
-        open:insert(0, start)
-        cameFrom[start] = nil
-        tCost[start] = 0
-        for current in PQ.pop, open do
-            if goal(current) then
-                return backtrack(current, cameFrom)
-            else
-                closed[current] = true
-                local costFromCurrentTo = cost(current)
-                for _, neighbor in pairs(expand(current)) do
-                    if not closed[neighbor] then
-                        local tmpCost = tCost[current] + costFromCurrentTo(neighbor)
-                        if maybe(true)(inferior(tmpCost))(tCost[neighbor]) then
-                            cameFrom[neighbor] = current
-                            tCost[neighbor] = tmpCost
-                            open:insert(tmpCost + heuristic(neighbor), neighbor)
+                    open:insert(0, start)
+                    cameFrom[start] = nil
+                    tCost[start] = 0
+                    for current in PQ.pop, open do
+                        if goal(current) then
+                            return backtrack(current, cameFrom)
+                        else
+                            closed[current] = true
+                            local costFromCurrentTo = cost(current)
+                            for _, neighbor in pairs(expand(current)) do
+                                if not closed[neighbor] then
+                                    local tmpCost = tCost[current] + costFromCurrentTo(neighbor)
+                                    if maybe(true)(inferior(tmpCost))(tCost[neighbor]) then
+                                        cameFrom[neighbor] = current
+                                        tCost[neighbor] = tmpCost
+                                        open:insert(tmpCost + heuristic(neighbor), neighbor)
+                                    end
+                                end
+                            end
                         end
                     end
+                    return nil
                 end
             end
         end
-        return nil
     end
-end
-end
-end
 end
 
 return aStar
